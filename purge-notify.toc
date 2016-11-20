@@ -1,0 +1,6 @@
+## Interface: 11200
+## Title: purge-notify
+## Notes:
+## Author: tinkerscript
+## SavedVariablesPerCharacter: purgen_options
+purge-notify.lua
