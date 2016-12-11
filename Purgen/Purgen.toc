@@ -3,4 +3,4 @@
 ## Notes: purge notifications
 ## Author: tinkerscript
 ## SavedVariablesPerCharacter: purgen_options
-purge-notify.lua
+Purgen.lua

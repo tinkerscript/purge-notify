@@ -1,3 +1,18 @@
+local function Parse(source)
+  local result = {}
+  local apostrophe = string.find(source, "'s")
+  local buffStart = 6
+
+  if apostrophe ~= nil then
+    result.name = string.sub(source, 1, apostrophe - 1)
+    buffStart = apostrophe + 3
+  end
+
+  local buffEnd = string.find(source, ' is removed.')
+  result.buff = string.sub(source, buffStart, buffEnd - 1)
+  return result
+end
+
 local function Print(caption, text)
 	local value = text;
 
@@ -78,7 +93,26 @@ PurgenMain:SetScript('OnEvent', function()
 	end
 
 	if event == 'CHAT_MSG_SPELL_BREAK_AURA' then
-		SendChatMessage(': '..arg1, 'EMOTE');
+		if arg1 ~= nil then
+			local text = nil;
+			local info = Parse(arg1);
+
+      if info.name ~= nil then
+        if info.buff == 'Blessing of Freedom' then
+  				text = 'Purged Blessing of Freedom from '..info.name..', stop him!'
+  			elseif info.buff == 'Blessing of Protection' then
+  				text = 'Purged Blessing of Protection from '..info.name..', finish him!'
+  			elseif info.buff == "Nature's Swiftness" then
+  				text = "Purged Nature's Swiftness from "..info.name..', loooser!'
+  			elseif info.buff == 'Lightning Shield' then
+  				text = 'Purged Lightning Shield from my friend '..info.name..'!'
+  			end
+
+    		if text ~= nil then
+      		SendChatMessage(text, 'SAY');
+    		end
+      end
+		end
 	end
 end);
 
