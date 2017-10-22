@@ -7,8 +7,12 @@
 
 # development
 ## tools
-    sudo apt-get install lua5.1
-    sudo apt-get install luarocks
-    sudo luarocks install busted
+```bash
+sudo apt-get install lua5.1
+sudo apt-get install luarocks
+sudo luarocks install busted
+```
 ## tests
-    busted test/index.lua
+```bash
+busted test/index.lua
+```
