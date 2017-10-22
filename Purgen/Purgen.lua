@@ -97,21 +97,21 @@ PurgenMain:SetScript('OnEvent', function()
 			local text = nil;
 			local info = Parse(arg1);
 
-      if info.name ~= nil then
-        if info.buff == 'Blessing of Freedom' then
-  				text = 'Purged Blessing of Freedom from '..info.name..', stop him!'
-  			elseif info.buff == 'Blessing of Protection' then
-  				text = 'Purged Blessing of Protection from '..info.name..', finish him!'
-  			elseif info.buff == "Nature's Swiftness" then
-  				text = "Purged Nature's Swiftness from "..info.name..', loooser!'
-  			elseif info.buff == 'Lightning Shield' then
-  				text = 'Purged Lightning Shield from my friend '..info.name..'!'
-  			end
+			if info.name ~= nil then
+	        	if info.buff == 'Blessing of Freedom' then
+	  				text = 'Purged Blessing of Freedom from '..info.name..', stop him!'
+	  			elseif info.buff == 'Blessing of Protection' then
+	  				text = 'Purged Blessing of Protection from '..info.name..', finish him!'
+	  			elseif info.buff == "Nature's Swiftness" then
+	  				text = "Purged Nature's Swiftness from "..info.name..', loooser!'
+	  			elseif info.buff == 'Sacrifice' then
+	  				text = 'Purged Sacrifice from '..info.name..', finish him!'
+	  			end
 
-    		if text ~= nil then
-      		SendChatMessage(text, 'SAY');
-    		end
-      end
+	    		if text ~= nil then
+	      			SendChatMessage(text, 'SAY');
+	    		end
+      		end
 		end
 	end
 end);
